@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>FORM FOR PRATICE</title>
+	
+	
+  </head>
+
+  <body>
+	
+	
+	<p id="show"></p>
+	<div id="table">
+	<table  style="border:1px solid;width:100%;text-align:center;"  >
+	
+	<tr style="border:1px solid">
+	<th style="border:1px solid" >S.No</th>
+	<th style="border:1px solid">User_name</th>
+	<th style="border:1px solid">Password</th>
+	<th style="border:1px solid">Emp_number</th>
+	
+	<th style="border:1px solid">Gender</th>
+	<th style="border:1px solid">Movie1</th>
+	<th style="border:1px solid">Movie2</th>
+	<th style="border:1px solid">Movie3</th>
+	<th style="border:1px solid">Imagename</th>
+	<th style="border:1px solid">Image</th>	
+	<th style="border:1px solid">Action</th>
+	<th style="border:1px solid">Website</th>
+	
+	</tr>
+    
+
+<?php 
+
+$servername="localhost";
+$username="root";
+$password="";
+$dbname="prasanthdb";
+GLOBAL $counter;
+$con = new mysqli($servername,$username,$password,$dbname);
+
+$sql = "SELECT * FROM homework";
+
+$result = $con->query($sql);
+
+
+if($result->num_rows>0){
+	
+	$counter;
+	while($rows=$result->fetch_assoc()){
+		
+		
+		
+
+		
+		$counter++;
+		echo '<tr>'.'<td style="border:1px solid black">'.$counter.'</td>'.'<td style="border:1px solid">'.$rows['subject'].'</td>'.'<td style="border:1px solid">'.$rows['topic'].'</td>'.'<td style="border:1px solid">'.$rows['homework'].'</td>'.'<td style="border:1px solid">'.$rows['action'].'</td>'.'</tr>';
+		
+		
+		
+		}	
+}
+
+
+
+
+
+
+
+?>
+	</table></div>
+
+
+
+
+
+
+  </body>
+</html>
